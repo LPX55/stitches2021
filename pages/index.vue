@@ -18,7 +18,7 @@
         </div>
         <div class="w-full lg:w-1/2 px-4">
           <div class="px-6 lg:px-20 py-12 lg:py-12 bg-realgray rounded-lg">
-            <form action="app.html">
+            <form action="#">
               <h3 class="mb-10 text-2xl text-white font-bold font-heading" data-config-id="form-header">중개사 로그인</h3>
               <div class="flex items-center pl-6 mb-3 bg-white rounded-full">
                 <span class="inline-block pr-3 py-2 border-r border-gray-50">
@@ -42,9 +42,9 @@
               <div class="inline-flex mb-10">
                 <p class="mt-4 text-sm text-gray-200" data-config-id="terms">로그인하면 둥지의 이용 약관 및 개인 정보 보호 정책에 동의하는 것입니다.</p>
               </div>
-              <button class="py-4 w-full hover:bg-black text-white font-bold rounded-full transition duration-200" data-config-id="primary-action" type="submit"  style="background-color: #cead6b;">로그인</button>
+              <button class="py-4 w-full hover:bg-black text-white font-bold rounded-full transition duration-200" data-config-id="primary-action" style="background-color: #cead6b;" @click="loginHandler">로그인</button>
             </form>
-            <p class="mt-8 text-gray-200">둥지부동산 / 01067849180</p>
+            <p class="mt-8 text-gray-200">hsyoon@offjectplus.com / 01090123298</p>
 
           </div>
         </div>
@@ -55,7 +55,21 @@
 </template>
 <script>
 export default {
-	
+	  methods: {
+    loginHandler (data) {
+      // await this.$axios.get('Managers', data)
+      // await this.$axios.post('ManagersMeta', data)
+            // await this.$localForage.setItem('manID', data.Id)
+    const phoneNo = document.getElementById('number').value
+    if(phoneNo === '01090123298'){
+      localStorage.setItem("phoneNo", phoneNo);
+      this.$router.push('/onboarding')
+    } else{
+      alert("Unapproved Number");
+    }
+
+    },
+  }
 }
 </script>
 <style>

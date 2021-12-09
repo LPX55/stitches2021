@@ -36,6 +36,228 @@
 </div>
 
 <div v-html="JSON.parse(htmlStr)"></div>
+
+<section v-for="list in listings" :key="list.index" class="max-h-screen h-screen snipcss-Bvake overflow-y-hidden ">
+  <div class="px-4 md:px-8 lg:py-8 ">
+    <div class="card p-10 bg-gray-200" data-editable data-name="list-content">
+    <div class="row">
+      <div class="col-lg-7 col-xl-7">
+        <div class="single_property_title">
+          <div class="media">
+            <div class="media-body">
+              <h2 class="mt-0">{{ list.Name }}</h2>
+              <p>{{ list.RoadAddress }} | {{ list.ZibunAddress }} </p>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 col-xl-5">
+        <div class="single_property_social_share_content text-right">
+          <div class="mt20 mb10"><h3>
+             ₩ {{ list.Price }}</h3></div>
+          <p class="mb0">Est. Mortgage</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-7">
+        <div class="row">
+          <div class="col-lg-12 pr0">
+            <div class="spls_style_two">
+                <img class="img-fluid first-img" src="https://tools.doongji.kr/images/list-1/1.jpg">
+              <a href="#"><span class="baddge_left">FEATURED</span></a>
+              <a href="#"><span class="baddge_right">FOR SALE</span></a>
+            </div>
+            <div class="mt-4">
+            <div class="grid overflow-hidden md grid-cols-6 auto-rows-auto gap-2.5">
+              <div class="box"><img class="img-fluid w100" src="https://tools.doongji.kr/images/list-1/2.jpg"></div>
+              <div class="box"><img class="img-fluid w100" src="https://tools.doongji.kr/images/list-1/3.jpg"></div>
+              <div class="box"><img class="img-fluid w100" src="https://tools.doongji.kr/images/list-1/4.jpg"></div>
+              <div class="box"><img class="img-fluid w100" src="https://tools.doongji.kr/images/list-1/5.jpg"></div>
+              <div class="box"><img class="img-fluid w100" src="https://tools.doongji.kr/images/list-1/6.jpg"></div>
+              <div class="box"><img class="img-fluid w100" src="https://tools.doongji.kr/images/list-1/7.jpg"></div>
+            </div>
+
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 h-screen pl-4">
+      <div class="grid overflow-hidden md grid-cols-1 grid-rows-2 gap-2.5">
+        <div id="map" class="box row-span-1 col-start-1 col-end-12 w-full" style="height:40vh"></div>
+        <div class="box row-span-1 col-start-1 col-end-12">
+          <div class="px-4 mt-4 property_single_page_widget snipcss-oEb6H">
+            <div class="additional_details">
+              <div class="row">
+                <div class="w-full">
+                  <h4 class="mb15">
+                    Property Details
+                  </h4>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4 mr-3">
+                  <ul class="list-inline-item mr-6" style="margin-right:1rem !important">
+                    <li>
+                      <p>
+                        Property ID:
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Price:
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Property Size:
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Year Built:
+                      </p>
+                    </li>
+                  </ul>
+                  <ul class="list-inline-item mr-4" style="margin-right:1rem !important">
+                    <li>
+                      <p>
+                        <span>
+                          HZ27
+                        </span>
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <span>
+                          ₩ {{ list.Price }}
+                        </span>
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <span>
+                          {{ list.PrivateAreaM }} m2
+                        </span>
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <span>
+                          2021-01-09
+                        </span>
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4 mr-3">
+                  <ul class="list-inline-item mr-4">
+                    <li>
+                      <p>
+                        Bedrooms :
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Bathrooms :
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Floor :
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Total Floors :
+                      </p>
+                    </li>
+                  </ul>
+                  <ul class="list-inline-item">
+                    <li>
+                      <p>
+                        <span>
+                          {{ list.Room }}
+                        </span>
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <span>
+                          {{ list.BathRoom }}
+                        </span>
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <span>
+                          {{ list.Floor}} 충
+                        </span>
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <span>
+                          {{ list.TotalFloor }}
+                        </span>
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-4">
+                  <ul class="list-inline-item">
+                    <li>
+                      <p>
+                        Property Type:
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Property Status:
+                      </p>
+                    </li>
+                  </ul>
+                  <ul class="list-inline-item">
+                    <li>
+                      <p>
+                        <span>
+                          Apartment
+                        </span>
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <span>
+                          For Sale
+                        </span>
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+                <hr>
+                <div class="w-full mt-6">
+                  <h4 class="mb-4">
+                    Memo
+                  </h4>
+      <div id="memo" class="h-auto max-h-64 overflow-y-scroll">
+        {{ list.Memo }}
+
+      </div>                      
+                </div>
+              </div>
+            </div>
+          </div>
+          
+
+        </div>
+      </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</section>
+
 </section>
 </template>
 
@@ -62,6 +284,7 @@ export default {
 	mounted () {
 	this.$nextTick(function () {
 		this.localUser = JSON.parse(this.user)
+    this.listings = JSON.parse(this.listings)
 		this.changeText()
 	})
 	},
@@ -74,7 +297,7 @@ export default {
 		this.loadedportfolio = loadedportfolio
 		},
 		changeText () {
-			this.message = this.message.replace("{{localUser.Name}}", this.localUser.Name);    
+			// this.message = this.message.replace("{{localUser.Name}}", this.localUser.Name);    
 		}
 	},
 }
@@ -133,4 +356,11 @@ window.onscroll = function() {
   }
   prevScrollpos = currentScrollPos;
 }
+
+		// var mapOptions = {
+		// 	center: new naver.maps.LatLng(37.3595704, 127.105399),
+		// 	zoom: 10
+		// };
+		
+		// var map = new naver.maps.Map('map', mapOptions);
 </script>

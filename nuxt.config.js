@@ -53,12 +53,14 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
   ],
-
+  router: {
+    mode: 'hash'
+  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     baseURL: 'https://db.doongji.kr/nc/doongjiblack_jagi/api/v1/',
     headers: {
-      'xc-token': process.env.API_AUTH
+      'xc-auth': process.env.API_AUTH
     }
   },
 

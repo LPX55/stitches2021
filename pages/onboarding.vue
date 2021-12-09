@@ -14,13 +14,14 @@
 		<hr class="my-4">
         <div class="mt-8">
 
-          <p class="mt-2 not-italic">문의 사항이나 문제가 있으면 고객센터에 문의하세요.</p>
+          <p class="mt-2 not-italic">문의 사항이나 문제가 있으면 고객센터에 문의하세요. </p>
           <a href="" class="text-2xl font-bold text-gold-500">1577-9489</a>
 
         </div>
       </div>
 
       <div class="px-8 py-4 bg-white rounded-lg shadow-lg lg:px-12 lg:py-4 lg:col-span-3">
+        
       <FormsOnboard />
       </div>
     </div>
@@ -30,31 +31,34 @@
 </template>
 <script>
 export default {
+  name: 'OnboardOne',
 	layout: 'onboarding',
+  	async asyncData({ $axios }) {
+
+		const user = await $axios.$get(`Managers?where=(Phone%2Ceq%2C${localStorage.getItem("phoneNo")})`)
+		
+    return user
+	},
 	data(){
 		return{
 			localUser: [],
-			step: 0
+			step: 0,
+      user: this.user
 		}
 	},
-	async fetch() {
-    	this.localUser = await this.$localForage.getItem('user')
-  	},
+
 	mounted () {
 	this.$nextTick(function () {
-		if(this.localUser === null){
-			this.step = 0
-		} else if(this.localUser.Step === 1){
-			this.step = 1
-		}
+    // this.submitHandler(user)
+
 	})
 	},
   methods: {
-    // async submitHandler (data) {
-    //   await this.$axios.post('ManagersMeta', data)
-    //   await this.$localForage.setItem('user', data)
-    //   await this.$localForage.setItem('manID', data.managerId)
-    // },
+    async submitHandler (data) {
+      // await this.$axios.post('ManagersMeta', data)
+      await this.$localForage.setItem('user', data)
+      // await this.$localForage.setItem('manID', data.managerId)
+    },
   }
 	
 }

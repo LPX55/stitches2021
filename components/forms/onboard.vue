@@ -17,7 +17,7 @@
     />
     <FormulateInput
       name="Email"
-      type="email"
+      type="text"
       label="이매일 주소"
       placeholder="name@naver.com"
      
@@ -82,7 +82,7 @@
     />    
     <pre
       class="code"
-      v-text="formValues"
+      v-text="user"
     />
   </FormulateForm>
 </template>
@@ -90,22 +90,31 @@
 <script>
 export default {
   // props: ['user'],
+  	async asyncData({ $axios, $localForage }) {
+
+		const user = await $axios.$get(`Managers?where=(Phone%2Ceq%2C${localStorage.getItem("phoneNo")})`).data
+    console.log(user)
+    await $localForage.setItem('user', user)
+		return user.flat()
+	},
   data () {
     return {
 			user: {
-				"Id": "47d5daf5-4bba-4641-92a9-13b357851dc0",
-				"Email": "songheekuk@naver.com",
-				"Name": "송희국",
-				"Phone": null,
-				"OfficeName": "둥지사무실",
-				"OfficeAddress": "백제고분로 276 502",
-				"ManagerId": "88806",
-			},
+        CreateDate: "2021-09-07T13:44:42.000Z",
+        Email: "hsyoon@offjectplus.com",
+        Grade: 100,
+        Id: "640b3898-cd44-4915-b691-4eff57d81ea6",
+        ManagerId: "39455",
+        Name: "윤한섭",
+        OfficeAddress: "555 Jungang-ro 463",
+        OfficeName: "Offject",
+        Phone: "01090123298",
+      },
       postData: {}
     }
   },
     created() {
-    this.postData = this.user
+    // this.user = this.user
     // this.item.name = this.flat.name
     // ...
   },
