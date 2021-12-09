@@ -1,0 +1,77 @@
+@font-face {
+	font-family: 'Chef';
+	src: url("/fonts/cf-400-reguar.otf") format("opentype");
+	font-weight: 400;
+}
+@font-face {
+	font-family: 'Chef';
+	src: url("/fonts/cf-100-thin.otf") format("opentype");
+	font-weight: 100;
+}
+@font-face {
+	font-family: 'Chef';
+	src: url("/fonts/cf-200-extralight.otf") format("opentype");
+	font-weight: 200;
+}
+@font-face {
+	font-family: 'Chef';
+	src: url("/fonts/cf-300-light.otf") format("opentype");
+	font-weight: 300;
+}
+@font-face {
+	font-family: 'Chef';
+	src: url("/fonts/cf-400-reguar.otf") format("opentype");
+	font-weight: 400;
+}
+@font-face {
+	font-family: 'Chef';
+	src: url("/fonts/cf-500-medium.otf") format("opentype");
+	font-weight: 500;
+}
+@font-face {
+	font-family: 'Chef';
+	src: url("/fonts/cf-600-bold.otf") format("opentype");
+	font-weight: 600;
+}
+@font-face {
+	font-family: 'Chef';
+	src: url("/fonts/cf-700-extrabold.otf") format("opentype");
+	font-weight: 700;
+}
+@font-face {
+	font-family: 'Chef';
+	src: url("/fonts/cf-800-heavy.otf") format("opentype");
+	font-weight: 800;
+}
+@font-face {
+	font-family: 'Chef';
+	src: url("/fonts/cf-900-black.otf") format("opentype");
+	font-weight:900;
+}
+
+
+
+.text-cf{
+  font-family: 'Chef', sans-serif !important;
+}
+html, body{
+    font-family: 'Chef' !important;
+}
+.formulate-input-element	 {
+	@apply py-2 px-0 text-tgray-700;
+  }
+  .formulate-input	 {
+	@apply py-2 px-0 text-tgray-700;
+  }  
+  .formulate-input-label {
+	@apply py-2 text-sm text-tgray-500;
+  } 
+  input {
+	@apply mt-0 focus:ring-gold-500 focus:border-gold-500 block w-full border-gold-300 ;
+  } 
+   textarea {
+	@apply mt-0 block w-full;
+  }   
+  .formulate-input-error {
+	@apply text-red-600 text-xs;
+  }

@@ -125,6 +125,30 @@ module.exports = {
         800: '#97266d',
         900: '#702459',
       },
+      tgray: {
+        50: '#f8f8f9', 
+        100: '#f0f1f2', 
+        200: '#dadcdf', 
+        300: '#c4c7cc', 
+        400: '#979ca6', 
+        500: '#6B7280', 
+        600: '#606773', 
+        700: '#505660', 
+        800: '#40444d', 
+        900: '#34383f'
+      },
+      gold: {
+        50: '#fdfbf8', 
+        100: '#faf7f0', 
+        200: '#f3ebda', 
+        300: '#ebdec4', 
+        400: '#ddc697', 
+        500: '#CEAD6B', 
+        600: '#b99c60', 
+        700: '#9b8250', 
+        800: '#7c6840', 
+        900: '#655534'
+     },
     },
     spacing: {
       px: '1px',
@@ -487,5 +511,7 @@ module.exports = {
     zIndex: ['responsive'],
   },
   corePlugins: {},
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }

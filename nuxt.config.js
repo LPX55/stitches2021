@@ -1,8 +1,10 @@
+require('dotenv').config()
+
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   ssr: false,
   head: {
-    title: 'stitches2021',
+    title: 'Doongji Smart Portfolio',
     htmlAttrs: {
       lang: 'en'
     },
@@ -20,13 +22,16 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    'dragula/dist/dragula.css'
+    'dragula/dist/dragula.css',
+    {src: '~/assets/css/custom.css', body: true}
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     { src: '~/plugins/dragula.js', mode: 'client' },
-    { src: '~/plugins/downloader.js', mode: 'client' }
+    { src: '~/plugins/downloader.js', mode: 'client' },
+    { src: '~/plugins/vue-luxon.js', mode: 'client' },
+    '~/plugins/uuid.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -38,6 +43,9 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    '@braid/vue-formulate/nuxt',
+    '@nuxtjs/dotenv',
+    '@nuxtjs/localforage',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -47,7 +55,12 @@ export default {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: 'https://db.doongji.kr/nc/doongjiblack_jagi/api/v1/',
+    headers: {
+      'xc-token': process.env.API_AUTH
+    }
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
